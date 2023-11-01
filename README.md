@@ -8,7 +8,6 @@ Here's how I'd like *Manifesto* to work.
     manifesto = new Manifesto()
     manifesto.drawLine()
 
-## Result
 ![horizontal black line on white layer](manifesto-sample-drawing0.png)
 
 # Draw a layer
@@ -18,7 +17,6 @@ Here's how I'd like *Manifesto* to work.
     background = manifesto.makeLayer()
     background.color(lightblue)
 
-## Result
 ![horizontal black line on white layer](manifesto-sample-drawing1.png)
 
 # Draw on a few layers
@@ -29,6 +27,5 @@ Here's how I'd like *Manifesto* to work.
     foreground = manifesto.makeLayer()
     foreground.drawLine()
 
-## Result
 ![horizontal black line on light blue layer](manifesto-sample-drawing2.png)
 
