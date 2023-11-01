@@ -1,4 +1,4 @@
-*Monifesto* is a library for drawing on a layered cavnas.
+*Monifesto* is a library for drawing on a layered canvas.
 
 Here's how I'd like *Monifesto* to work.
 
