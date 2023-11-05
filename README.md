@@ -17,7 +17,7 @@ Here's how I'd like *Monifesto* to work.
     background = monifesto.makeLayer()
     background.color(lightblue)
 
-![horizontal black line on white layer](monifesto-sample-drawing1.png)
+![light blue background](monifesto-sample-drawing1.png)
 
 # Draw on a few layers
 
