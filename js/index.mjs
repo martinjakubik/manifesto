@@ -22,4 +22,4 @@ const drawLine = function () {
     this.context.stroke();
 };
 
-export {drawLine};
+export { drawLine };
