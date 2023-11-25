@@ -1,4 +1,4 @@
-import { createCanvas } from './lib/learnhypertext';
+import { createCanvas } from '../../lib/learnhypertext.mjs';
 
 const drawLine = function () {
     const sCanvasId = 'canvas';
