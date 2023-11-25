@@ -1,4 +1,8 @@
 import { createCanvas } from '../../lib/learnhypertext.mjs';
+import { Layer } from './monifestoLayer.mjs';
+import { Palette } from './monifestoPalette.mjs';
+
+const lightblue = 'lightblue';
 
 const drawLine = function () {
     const sCanvasId = 'canvas';
@@ -22,4 +26,14 @@ const drawLine = function () {
     oContext.stroke();
 };
 
-export { drawLine };
+const makeLayer = function () {
+    const sCanvasId = 'canvas';
+    const oCanvas = createCanvas(sCanvasId);
+    const oContext = oCanvas.getContext('2d');
+    oContext.fillStyle = Palette.lightblue;
+    oContext.fillRect(0, 0, oCanvas.width, oCanvas.height);
+    const oLayer = new Layer();
+    return oLayer;
+};
+
+export { drawLine, makeLayer };
