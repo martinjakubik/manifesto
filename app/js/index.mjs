@@ -13,13 +13,13 @@ const drawLine = function () {
             y2: 120
         }]
     };
-    this.context.beginPath();
+    oContext.beginPath();
     oLine.path.forEach(oEdge => {
-        this.context.moveTo(oEdge.x1, oEdge.y1);
-        this.context.lineTo(oEdge.x2, oEdge.y2);
+        oContext.moveTo(oEdge.x1, oEdge.y1);
+        oContext.lineTo(oEdge.x2, oEdge.y2);
     });
-    this.context.closePath();
-    this.context.stroke();
+    oContext.closePath();
+    oContext.stroke();
 };
 
 export { drawLine };
