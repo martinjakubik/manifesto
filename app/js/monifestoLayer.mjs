@@ -3,10 +3,10 @@ import StartDimensions from './monifestoDimensions.mjs';
 import Palette from './monifestoPalette.mjs';
 
 class Layer {
-    constructor (monifesto) {
+    constructor (monifesto, dimensions, palette) {
         this.monifesto = monifesto;
-        this.monifesto.context.fillStyle = Palette.lightblue;
-        this.monifesto.context.fillRect(0, 0, this.monifesto.canvas.width, this.monifesto.canvas.height);
+        this.monifesto.context.fillStyle = palette.fill;
+        this.monifesto.context.fillRect(0, 0, dimensions.width, dimensions.height);
     }
 
     line (dimensions = StartDimensions.line) {

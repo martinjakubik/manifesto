@@ -2,6 +2,7 @@ import { createCanvas } from '../../lib/learnhypertext.mjs';
 import ObjectTypeEnum from './monifestoObjectTypes.mjs';
 import Layer from './monifestoLayer.mjs';
 import StartDimensions from './monifestoDimensions.mjs';
+import Palette from './monifestoPalette.mjs';
 
 class Monifesto {
 
@@ -47,8 +48,8 @@ class Monifesto {
         return nFreeId;
     }
 
-    layer () {
-        const oLayer = new Layer(this);
+    layer (dimensions = StartDimensions.canvas, palette = Palette) {
+        const oLayer = new Layer(this, dimensions, palette);
         const nLayerId = this.getFreeId(ObjectTypeEnum.layer);
         this.layers[nLayerId] = oLayer;
         return oLayer;
