@@ -25,7 +25,7 @@ class Monifesto {
         return nFreePathId;
     }
 
-    drawLine () {
+    line () {
         this.context.strokeStyle = 'black';
         const nFreePathId = this.getFreePathId();
         this.paths[nFreePathId] = {
@@ -45,7 +45,7 @@ class Monifesto {
         this.context.stroke();
     }
 
-    makeLayer () {
+    layer () {
         this.context.fillStyle = Palette.lightblue;
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         const oLayer = new Layer();

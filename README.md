@@ -6,7 +6,7 @@ Here's how I'd like *Monifesto* to work.
 
     import Monifesto
     monifesto = new Monifesto()
-    monifesto.drawLine()
+    monifesto.line()
 
 ![horizontal black line on white layer](monifesto-sample-drawing0.png)
 
@@ -14,7 +14,7 @@ Here's how I'd like *Monifesto* to work.
 
     import Monifesto
     monifesto = new Monifesto()
-    background = monifesto.makeLayer()
+    background = monifesto.layer()
     background.color(lightblue)
 
 ![light blue background](monifesto-sample-drawing1.png)
@@ -23,9 +23,9 @@ Here's how I'd like *Monifesto* to work.
 
     import Monifesto
     monifesto = new Monifesto()
-    background = monifesto.makeLayer(lightblue)
-    foreground = monifesto.makeLayer()
-    foreground.drawLine()
+    background = monifesto.layer(lightblue)
+    foreground = monifesto.layer()
+    foreground.line()
 
 ![horizontal black line on light blue layer](monifesto-sample-drawing2.png)
 
