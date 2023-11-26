@@ -1,12 +1,13 @@
 import { createCanvas } from '../../lib/learnhypertext.mjs';
+import ObjectTypeEnum from './monifestoObjectTypes.mjs';
 import Layer from './monifestoLayer.mjs';
 import Palette from './monifestoPalette.mjs';
 import StartDimensions from './monifestoDimensions.mjs';
 
 class Monifesto {
 
+    #MAX_LAYER_ID = 1000;
     #MAX_PATH_ID = 1000;
-
     constructor () {
         const sClasses = '';
         const nZindex = 0;
@@ -18,50 +19,57 @@ class Monifesto {
         this.context = this.canvas.getContext('2d');
         this.pathId = -1;
         this.paths = {};
+        this.layerId = -1;
+        this.layers = {};
+        this.layer();
     }
 
-    getFreePathId () {
-        let nFreePathId = this.MAX_PATH_ID;
-        for (let nPathId = -1; nPathId < this.MAX_PATH_ID; nPathId++) {
-            if(!this.paths[nPathId]) {
-                nFreePathId = nPathId;
+    getFreeId (nObjectType) {
+        let nFreeId = this.#MAX_LAYER_ID;
+        switch (nObjectType) {
+        case ObjectTypeEnum.path:
+            nFreeId = this.#MAX_PATH_ID;
+            for (let nPathId = -1; nPathId < this.MAX_PATH_ID; nPathId++) {
+                if(!this.paths[nPathId]) {
+                    nFreeId = nPathId;
+                }
             }
+            break;
+        default:
+        case ObjectTypeEnum.layer:
+            nFreeId = this.#MAX_LAYER_ID;
+            for (let nLayerId = -1; nLayerId < this.MAX_PATH_ID; nLayerId++) {
+                if(!this.layers[nLayerId]) {
+                    nFreeId = nLayerId;
+                }
+            }
+            break;
         }
-        return nFreePathId;
+        return nFreeId;
+    }
+
+    getBottomLayer () {
+        let aLayerIds = Object.keys(this.layers);
+        if (!aLayerIds[0]) {
+            this.layer();
+        }
+        return Object.values(this.layers)[0];
     }
 
     line (dimensions = StartDimensions.line) {
-        this.context.strokeStyle = 'black';
-        this.context.lineWidth = 1;
-        const nFreePathId = this.getFreePathId();
-        this.paths[nFreePathId] = {
-            path: [{
-                x1: dimensions.x1,
-                y1: dimensions.y1,
-                x2: dimensions.x2,
-                y2: dimensions.y2
-            }]
-        };
-        this.context.beginPath();
-        this.paths[nFreePathId].path.forEach(oEdge => {
-            this.context.moveTo(oEdge.x1, oEdge.y1);
-            this.context.lineTo(oEdge.x2, oEdge.y2);
-        });
-        this.context.closePath();
-        this.context.stroke();
+        const oLayer = this.getBottomLayer();
+        oLayer.line(dimensions);
     }
 
     layer () {
-        this.context.fillStyle = Palette.lightblue;
-        this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
-        const oLayer = new Layer();
-        return oLayer;
+        const oLayer = new Layer(this);
+        const nLayerId = this.getFreeId(ObjectTypeEnum.layer);
+        this.layers[nLayerId] = oLayer;
     }
 
     text (sText = 'text', dimensions = StartDimensions.text) {
-        this.context.font = '10px sans-serif';
-        this.context.fillStyle = 'black';
-        this.context.fillText(sText, dimensions.x1, dimensions.y1);
+        const oLayer = this.getBottomLayer();
+        oLayer.text(sText, dimensions);
     }
 }
 
