@@ -1,4 +1,5 @@
-import * as monifesto from '../../app/js/index.mjs';
+import Monifesto from '../../app/js/index.mjs';
 
+const monifesto = new Monifesto();
 monifesto.drawLine();
 monifesto.makeLayer();
