@@ -5,7 +5,7 @@ import StartDimensions from './monifestoDimensions.mjs';
 
 class Monifesto {
 
-    MAX_PATH_ID = 1000;
+    #MAX_PATH_ID = 1000;
 
     constructor () {
         this.canvasId = 'canvas';
