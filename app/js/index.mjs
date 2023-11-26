@@ -3,12 +3,31 @@ import { Layer } from './monifestoLayer.mjs';
 import { Palette } from './monifestoPalette.mjs';
 
 class Monifesto {
+
+    MAX_PATH_ID = 1000;
+
+    constructor () {
+        this.canvasId = 'canvas';
+        this.canvas = createCanvas(this.canvasId);
+        this.context = this.canvas.getContext('2d');
+        this.pathId = -1;
+        this.paths = {};
+    }
+
+    getFreePathId () {
+        let nFreePathId = this.MAX_PATH_ID;
+        for (let nPathId = -1; nPathId < this.MAX_PATH_ID; nPathId++) {
+            if(!this.paths[nPathId]) {
+                nFreePathId = nPathId;
+            }
+        }
+        return nFreePathId;
+    }
+
     drawLine () {
-        const sCanvasId = 'canvas';
-        const oCanvas = createCanvas(sCanvasId);
-        const oContext = oCanvas.getContext('2d');
-        oContext.strokeStyle = 'black';
-        const oLine = {
+        this.context.strokeStyle = 'black';
+        const nFreePathId = this.getFreePathId();
+        this.paths[nFreePathId] = {
             path: [{
                 x1: 40,
                 y1: 120,
@@ -16,21 +35,18 @@ class Monifesto {
                 y2: 120
             }]
         };
-        oContext.beginPath();
-        oLine.path.forEach(oEdge => {
-            oContext.moveTo(oEdge.x1, oEdge.y1);
-            oContext.lineTo(oEdge.x2, oEdge.y2);
+        this.context.beginPath();
+        this.paths[nFreePathId].path.forEach(oEdge => {
+            this.context.moveTo(oEdge.x1, oEdge.y1);
+            this.context.lineTo(oEdge.x2, oEdge.y2);
         });
-        oContext.closePath();
-        oContext.stroke();
+        this.context.closePath();
+        this.context.stroke();
     }
 
     makeLayer () {
-        const sCanvasId = 'canvas';
-        const oCanvas = createCanvas(sCanvasId);
-        const oContext = oCanvas.getContext('2d');
-        oContext.fillStyle = Palette.lightblue;
-        oContext.fillRect(0, 0, oCanvas.width, oCanvas.height);
+        this.context.fillStyle = Palette.lightblue;
+        this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         const oLayer = new Layer();
         return oLayer;
     }
