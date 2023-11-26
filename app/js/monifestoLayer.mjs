@@ -1,6 +1,5 @@
 import ObjectTypeEnum from './monifestoObjectTypes.mjs';
 import StartDimensions from './monifestoDimensions.mjs';
-import Palette from './monifestoPalette.mjs';
 
 class Layer {
     constructor (monifesto, dimensions, palette) {
