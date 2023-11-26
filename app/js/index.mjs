@@ -48,19 +48,19 @@ class Monifesto {
         return nFreeId;
     }
 
-    layer (dimensions = StartDimensions.canvas, palette = Palette) {
-        const oLayer = new Layer(this, dimensions, palette);
-        const nLayerId = this.getFreeId(ObjectTypeEnum.layer);
-        this.layers[nLayerId] = oLayer;
-        return oLayer;
-    }
-
     getBottomLayer () {
         let aLayerIds = Object.keys(this.layers);
         if (!aLayerIds[0]) {
             this.layer();
         }
         return Object.values(this.layers)[0];
+    }
+
+    layer (dimensions = StartDimensions.canvas, palette = Palette) {
+        const oLayer = new Layer(this, dimensions, palette);
+        const nLayerId = this.getFreeId(ObjectTypeEnum.layer);
+        this.layers[nLayerId] = oLayer;
+        return oLayer;
     }
 
     line (dimensions = StartDimensions.line) {
