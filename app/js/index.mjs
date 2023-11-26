@@ -51,6 +51,7 @@ class Monifesto {
         const oLayer = new Layer(this);
         const nLayerId = this.getFreeId(ObjectTypeEnum.layer);
         this.layers[nLayerId] = oLayer;
+        return oLayer;
     }
 
     getBottomLayer () {
