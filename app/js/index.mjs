@@ -48,6 +48,12 @@ class Monifesto {
         return nFreeId;
     }
 
+    layer () {
+        const oLayer = new Layer(this);
+        const nLayerId = this.getFreeId(ObjectTypeEnum.layer);
+        this.layers[nLayerId] = oLayer;
+    }
+
     getBottomLayer () {
         let aLayerIds = Object.keys(this.layers);
         if (!aLayerIds[0]) {
@@ -59,12 +65,6 @@ class Monifesto {
     line (dimensions = StartDimensions.line) {
         const oLayer = this.getBottomLayer();
         oLayer.line(dimensions);
-    }
-
-    layer () {
-        const oLayer = new Layer(this);
-        const nLayerId = this.getFreeId(ObjectTypeEnum.layer);
-        this.layers[nLayerId] = oLayer;
     }
 
     text (sText = 'text', dimensions = StartDimensions.text) {
