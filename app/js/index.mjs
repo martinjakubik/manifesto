@@ -1,7 +1,6 @@
 import { createCanvas } from '../../lib/learnhypertext.mjs';
 import ObjectTypeEnum from './monifestoObjectTypes.mjs';
 import Layer from './monifestoLayer.mjs';
-import Palette from './monifestoPalette.mjs';
 import StartDimensions from './monifestoDimensions.mjs';
 
 class Monifesto {
