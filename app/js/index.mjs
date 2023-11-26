@@ -59,10 +59,10 @@ class Monifesto {
         return oLayer;
     }
 
-    text (sText = 'text') {
+    text (sText = 'text', dimensions = StartDimensions.text) {
         this.context.font = '10px sans-serif';
         this.context.fillStyle = 'black';
-        this.context.fillText(sText, StartDimensions.text.x, StartDimensions.text.y);
+        this.context.fillText(sText, dimensions.x1, dimensions.y1);
     }
 }
 

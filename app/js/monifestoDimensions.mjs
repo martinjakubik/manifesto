@@ -10,8 +10,8 @@ const StartDimensions = {
         y2: 300
     },
     text: {
-        x: 60,
-        y: 300
+        x1: 60,
+        y1: 300
     }
 };
 
