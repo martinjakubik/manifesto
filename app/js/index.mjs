@@ -1,6 +1,7 @@
 import { createCanvas } from '../../lib/learnhypertext.mjs';
-import { Layer } from './monifestoLayer.mjs';
-import { Palette } from './monifestoPalette.mjs';
+import Layer from './monifestoLayer.mjs';
+import Palette from './monifestoPalette.mjs';
+import StartDimensions from './monifestoDimensions.mjs';
 
 class Monifesto {
 
@@ -29,10 +30,10 @@ class Monifesto {
         const nFreePathId = this.getFreePathId();
         this.paths[nFreePathId] = {
             path: [{
-                x1: 40,
-                y1: 120,
-                x2: 120,
-                y2: 120
+                x1: StartDimensions.line.x,
+                y1: StartDimensions.line.y,
+                x2: StartDimensions.line.x,
+                y2: StartDimensions.line.length
             }]
         };
         this.context.beginPath();
@@ -49,6 +50,12 @@ class Monifesto {
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
         const oLayer = new Layer();
         return oLayer;
+    }
+
+    text (sText = 'text') {
+        this.context.font = '10px sans-serif';
+        this.context.fillStyle = 'black';
+        this.context.fillText(sText, StartDimensions.text.x, StartDimensions.text.y);
     }
 }
 

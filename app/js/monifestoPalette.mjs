@@ -2,4 +2,4 @@ const Palette = {
     lightblue: 'lightblue'
 };
 
-export { Palette };
+export default Palette;
