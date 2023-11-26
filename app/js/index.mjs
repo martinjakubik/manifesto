@@ -8,7 +8,6 @@ class Monifesto {
     #MAX_PATH_ID = 1000;
 
     constructor () {
-        // sCanvasId: any, sClasses: any, nZindex: number | undefined, oParent: HTMLElement | undefined, nWidth: any, nHeight: any
         const sClasses = '';
         const nZindex = 0;
         const oParent = document.body;
