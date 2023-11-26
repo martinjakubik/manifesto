@@ -1,17 +1,21 @@
 const StartDimensions = {
     canvas: {
+        x: 0,
+        y: 0,
         width: 600,
         height: 600
     },
     line: {
-        x1: 60,
-        y1: 300,
-        x2: 540,
-        y2: 300
+        x: 60,
+        y: 300,
+        width: 480,
+        height: 0
     },
     text: {
-        x1: 60,
-        y1: 300
+        x: 60,
+        y: 300,
+        width: 100,
+        height: 12
     }
 };
 
