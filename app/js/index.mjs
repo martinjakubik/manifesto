@@ -2,8 +2,6 @@ import { createCanvas } from '../../lib/learnhypertext.mjs';
 import { Layer } from './monifestoLayer.mjs';
 import { Palette } from './monifestoPalette.mjs';
 
-const lightblue = 'lightblue';
-
 const drawLine = function () {
     const sCanvasId = 'canvas';
     const oCanvas = createCanvas(sCanvasId);
