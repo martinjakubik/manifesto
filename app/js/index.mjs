@@ -8,8 +8,14 @@ class Monifesto {
     #MAX_PATH_ID = 1000;
 
     constructor () {
+        // sCanvasId: any, sClasses: any, nZindex: number | undefined, oParent: HTMLElement | undefined, nWidth: any, nHeight: any
+        const sClasses = '';
+        const nZindex = 0;
+        const oParent = document.body;
+        const nWidth = StartDimensions.canvas.width;
+        const nHeight = StartDimensions.canvas.height;
         this.canvasId = 'canvas';
-        this.canvas = createCanvas(this.canvasId);
+        this.canvas = createCanvas(this.canvasId, sClasses, nZindex, oParent, nWidth, nHeight);
         this.context = this.canvas.getContext('2d');
         this.pathId = -1;
         this.paths = {};
@@ -25,8 +31,9 @@ class Monifesto {
         return nFreePathId;
     }
 
-    line (x1 = StartDimensions.line.x, y1 = StartDimensions.line.y, x2 = StartDimensions.line.x, y2 = StartDimensions.line.length) {
+    line (x1 = StartDimensions.line.x, y1 = StartDimensions.line.y, x2 = StartDimensions.line.x + StartDimensions.line.length, y2 = StartDimensions.line.y) {
         this.context.strokeStyle = 'black';
+        this.context.lineWidth = 1;
         const nFreePathId = this.getFreePathId();
         this.paths[nFreePathId] = {
             path: [{

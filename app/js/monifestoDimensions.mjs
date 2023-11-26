@@ -4,13 +4,13 @@ const StartDimensions = {
         height: 600
     },
     line: {
-        x: 40,
-        y: 120,
-        length: 120
+        x: 60,
+        y: 300,
+        length: 480
     },
     text: {
-        x: 40,
-        y: 120
+        x: 60,
+        y: 300
     }
 };
 
