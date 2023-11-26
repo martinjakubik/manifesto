@@ -31,16 +31,16 @@ class Monifesto {
         return nFreePathId;
     }
 
-    line (x1 = StartDimensions.line.x, y1 = StartDimensions.line.y, x2 = StartDimensions.line.x + StartDimensions.line.length, y2 = StartDimensions.line.y) {
+    line (dimensions = StartDimensions.line) {
         this.context.strokeStyle = 'black';
         this.context.lineWidth = 1;
         const nFreePathId = this.getFreePathId();
         this.paths[nFreePathId] = {
             path: [{
-                x1: x1,
-                y1: y1,
-                x2: x2,
-                y2: y2
+                x1: dimensions.x1,
+                y1: dimensions.y1,
+                x2: dimensions.x2,
+                y2: dimensions.y2
             }]
         };
         this.context.beginPath();
