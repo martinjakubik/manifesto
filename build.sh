@@ -2,7 +2,7 @@
 src_dir=app/js
 dist_dir=dist
 
-./node_modules/.bin/babel $src_dir --out-dir $dist_dir
+./node_modules/.bin/babel $src_dir --out-dir $dist_dir/lib
 
-cp $src_dir/index.mjs $dist_dir/index.mjs
-cp README.md LICENSE package.json $dist_dir
+cp $src_dir/*.mjs $dist_dir/lib/
+cp README.md LICENSE package.json postinstall.js $dist_dir
