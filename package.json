@@ -1,6 +1,6 @@
 {
   "name": "monifesto",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "a library for drawing on a layered cavnas",
   "main": "app/js/index.mjs",
   "type": "module",
