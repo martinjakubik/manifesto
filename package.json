@@ -30,7 +30,8 @@
     "eslint": "^8.52.0"
   },
   "files": [
-    "dist/*"
+    "dist/*",
+    "postinstall.js"
   ],
   "exports": {
     "require": "./dist/index.js",
