@@ -1,5 +1,5 @@
 #!/bin/bash
-src_dir=js
+src_dir=app/js
 dist_dir=dist
 
 ./node_modules/.bin/babel $src_dir --out-dir $dist_dir
